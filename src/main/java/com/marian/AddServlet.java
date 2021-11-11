@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class AddServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException { //SE SCRIVIAMO DOPOST IL METODO VERRA' CHIAMATO SOLAMENTE CON IL METODO POST, si può fare la stessa cosa con doGet
@@ -18,9 +19,11 @@ public class AddServlet extends HttpServlet {
 		
 		//SESSION MANAGEMENT -> PER CONDIVIDERE DATI FRA SERVLET
 		
+		HttpSession session = req.getSession();
+		session.setAttribute("k", k);
 		
-		res.sendRedirect("sq?k=" + k); //URL REDIRECTING
 		
+		//res.sendRedirect("sq?k=" + k); //URL REDIRECTING
 		
 		//req.setAttribute("k", k); //se vogliamo passare un dato da un servlet a un altro possiamo metterlo all'interno di un ATTRIBUTI DELLA VARIABILE REQUEST (REQ)
 		
