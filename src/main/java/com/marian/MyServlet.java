@@ -3,6 +3,7 @@ package com.marian;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,8 +16,10 @@ public class MyServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.print("Hi ");
 		
-		ServletContext ctx = getServletContext();
-		String str = ctx.getInitParameter("Phone");
+		
+		//se abbiamo più servlet che hanno lo stesso valore usiamo ServletContext, mentre se abbiamo un valore differente per ogni Servlet usiamo ServletConfig
+		ServletConfig ctx = getServletConfig(); //SE USASSI SERVLETCONTEXT OTTERREI HI MARIAN, mentre con ServletConfig ottengo Hi Marco
+		String str = ctx.getInitParameter("name");
 		
 		out.print(str);
 	}

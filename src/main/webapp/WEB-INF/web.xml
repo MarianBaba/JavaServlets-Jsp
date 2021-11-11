@@ -42,6 +42,12 @@
  <servlet>
  	<servlet-name>abc</servlet-name>
  	<servlet-class>com.marian.MyServlet</servlet-class>
+ 	
+ 	<init-param>
+ 	<param-name>name</param-name>
+ 	<param-value>Marco</param-value>
+ 	</init-param>
+ 	
  </servlet>
  
  <servlet-mapping>
