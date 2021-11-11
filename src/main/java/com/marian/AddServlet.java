@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,16 +19,18 @@ public class AddServlet extends HttpServlet {
 		int k = i + j;
 		
 		//SESSION MANAGEMENT -> PER CONDIVIDERE DATI FRA SERVLET
+		//HttpSession session = req.getSession();
+		//session.setAttribute("k", k);
 		
-		HttpSession session = req.getSession();
-		session.setAttribute("k", k);
+		//possiamo fare la stessa cosa che facciamo con session con i cookies
+		Cookie cookie = new Cookie("k", k + "");
+		res.addCookie(cookie);		
 		
+		res.sendRedirect("sq");
 		
 		//res.sendRedirect("sq?k=" + k); //URL REDIRECTING
 		
 		//req.setAttribute("k", k); //se vogliamo passare un dato da un servlet a un altro possiamo metterlo all'interno di un ATTRIBUTI DELLA VARIABILE REQUEST (REQ)
-		
-		
 		
 		//request dispatcher per chiamare un altro servlet da qui -> QUINDI QUESTO E' IL MODO PER CHIAMARE UN SERVLET DA UN SERVLET
 		//RequestDispatcher rd = req.getRequestDispatcher("sq");
