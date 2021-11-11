@@ -10,13 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 public class SqServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		
-		int k = (int) req.getAttribute("k"); //PER FARE IL FETCH DEL DATO PASSATO ALL'INTERNO DELLA VARIABILE REQ ABBIAMO UN METODO: getAttribute
+		//int k = (int) req.getAttribute("k"); //PER FARE IL FETCH DEL DATO PASSATO ALL'INTERNO DELLA VARIABILE REQ ABBIAMO UN METODO: getAttribute
 		
-		k *= k;
+		//k *= k;
+		
+		//PrintWriter out = res.getWriter();
+		//out.println("Result is " + k);
+		
+		int k = Integer.parseInt(req.getParameter("k"));
 		
 		PrintWriter out = res.getWriter();
 		out.println("Result is " + k);
 		
-		//THIS IS A NEW SERVLET
+		System.out.println("Sq called");
 	}
 }

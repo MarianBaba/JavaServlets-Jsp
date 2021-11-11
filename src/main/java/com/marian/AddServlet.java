@@ -19,10 +19,15 @@ public class AddServlet extends HttpServlet {
 		//SESSION MANAGEMENT -> PER CONDIVIDERE DATI FRA SERVLET
 		
 		
-		req.setAttribute("k", k); //se vogliamo passare un dato da un servlet a un altro possiamo metterlo all'interno di un ATTRIBUTI DELLA VARIABILE REQUEST (REQ)
+		res.sendRedirect("sq?k=" + k); //URL REDIRECTING
+		
+		
+		//req.setAttribute("k", k); //se vogliamo passare un dato da un servlet a un altro possiamo metterlo all'interno di un ATTRIBUTI DELLA VARIABILE REQUEST (REQ)
+		
+		
 		
 		//request dispatcher per chiamare un altro servlet da qui -> QUINDI QUESTO E' IL MODO PER CHIAMARE UN SERVLET DA UN SERVLET
-		RequestDispatcher rd = req.getRequestDispatcher("sq");
-		rd.forward(req, res);
+		//RequestDispatcher rd = req.getRequestDispatcher("sq");
+		//rd.forward(req, res);
 	}
 }
